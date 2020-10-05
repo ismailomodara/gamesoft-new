@@ -1,0 +1,39 @@
+@media (max-width: 1200px) {
+  .gs-auth {
+    .gs-auth-container {
+      width: 100%;
+      height: 100vh;
+
+      .gs-auth-container-content {
+        width: 100% !important;
+        margin: auto;
+
+        > div {
+          width: 60%;
+        }
+      }
+
+      .gs-auth-container-image {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .gs-auth-logo {
+    position: unset !important;
+    margin-bottom: 10px;
+  }
+
+  .gs-auth-container {
+    height: 100% !important;
+    background: #fff;
+    padding: 30px 0;
+  }
+
+  .gs-auth-container-content > div {
+    width: 100% !important;
+  }
+}
+

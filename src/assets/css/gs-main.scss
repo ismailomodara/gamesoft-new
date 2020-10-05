@@ -1,0 +1,342 @@
+$--color-primary: #4d00d2;
+$--color-text: #070013;
+
+::selection {
+  color: #4d00d2;
+  background: #4d00d230;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition-duration: 1s;
+  transition-property: opacity;
+  transition-timing-function: ease;
+}
+
+.fade-enter,
+.fade-leave-active {
+  opacity: 0;
+}
+
+@font-face {
+  font-family: 'Avenir';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/AvenirLTStd-Book.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/Quicksand-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 500;
+  src: url('../fonts/Quicksand-Medium.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 600;
+  src: url('../fonts/Quicksand-SemiBold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/Quicksand-Bold.woff') format('woff');
+}
+
+html, body {
+  font-size: 18px;
+  font-family: "Quicksand", sans-serif !important;
+  scroll-behavior: smooth;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+body {
+  color: $--color-text;
+  font-weight: 400;
+  line-height: 1.4;
+  background: #F3EFF9;
+  margin: 0;
+  padding: 0;
+
+  &::-webkit-scrollbar {
+    width: 7px;
+    border-radius: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #ccc;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #4d00d2;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 500;
+  line-height: 1.5;
+  margin: 0;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+h3 {
+  font-size: 1.7rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+h5 {
+  font-size: 1.2rem;
+}
+
+h6 {
+  font-size: 0.8rem;
+}
+
+p {
+  line-height: 1.4;
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+a, a:hover {
+  color: $--color-primary;
+  text-decoration: none;
+}
+
+.text-primary {
+  color: $--color-primary !important;
+}
+
+.gs-pill {
+  height: 40px;
+  padding: 10px 25px;
+  background: #36afa440;
+  color: #36afa4;
+  border-radius: 100px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+}
+
+.gs-pill:not(.no-hover):hover {
+  background: #36afa4;
+  color: #ffffff;
+  transition: all 0.2s ease-in;
+}
+
+.primary {
+  background: #4d00d220;
+  color: #4d00d2;
+}
+
+.danger {
+  background: #f56c6c20;
+  color: #f56c6c;
+}
+
+.success {
+  background: #3b807020;
+  color: #3b8070;
+}
+
+.primary:not(.no-hover):hover {
+  background: #4d00d2;
+  color: #ffffff;
+  transition: all 0.2s ease-in;
+}
+
+/* ======= AUTH PAGES ======== */
+.gs-auth {
+  width: 100%;
+  min-height: 100vh;
+  background: #F3EFF9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .gs-auth-container {
+    height: 80vh;
+    width: 75%;
+    display: flex;
+    border-radius: 8px;
+    box-shadow: -8px 32px 50px rgba(0, 0, 0, 0.08);
+
+    .gs-auth-container-content,
+    .gs-auth-container-image {
+      width: 50%;
+      height: 100%;
+      padding: 30px;
+    }
+
+    .gs-auth-container-content {
+      position: relative;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-bottom-left-radius: 8px;
+      border-top-left-radius: 8px;
+
+      .gs-auth-logo {
+        height: 40px;
+        width: auto;
+        position: absolute;
+        top: 50px;
+        left: 50px;
+      }
+
+      .gs-auth-heading {
+        color: $--color-text;
+        font-weight: 600;
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      > div {
+        width: 70%;
+        margin: auto;
+      }
+    }
+
+    .gs-auth-container-image {
+      border-bottom-right-radius: 8px;
+      border-top-right-radius: 8px;
+      background: $--color-primary;
+    }
+  }
+}
+
+.dark {
+  background: #070013;
+
+  > * {
+    color: #fff !important;
+  }
+}
+
+.inverse .text-primary {
+  color: #fff !important;
+}
+
+.inverse .el-progress-bar__outer {
+  background-color: #ffffff30;
+}
+
+.inverse .el-progress-bar__inner {
+  background-color: #fff !important;
+}
+
+.inverse .el-progress__text {
+  color: #ffffff;
+}
+
+.gs-filters {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 0 20px;
+
+  .el-input {
+    padding-top: 0;
+    height: auto;
+    width: 300px;
+  }
+
+  i {
+    top: 5px;
+    font-size: 16px;
+  }
+
+  .el-button {
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    height: 45px !important;
+
+    i {
+      margin-left: 5px;
+      font-size: 12px;
+    }
+
+    &:hover {
+      border-color: #7f828b;
+      color: #7f828b;
+      transform: translateY(0) !important;
+      box-shadow: none !important;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .gs-filters {
+    justify-content: center;
+
+    .el-button {
+      display: none;
+    }
+  }
+}
+
+.gs-selection {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+  margin-top: 10px;
+
+  .el-form-item__label {
+    margin-bottom: 0;
+    padding-bottom: 0 !important;
+    margin-right: 15px;
+  }
+
+  .el-radio.is-bordered {
+    margin-bottom: 0;
+    margin-right: 0;
+  }
+}
+
+
+.vue-csv-uploader {
+  .csv-import-checkbox {
+    display: none !important;
+  }
+
+  .table td, .table th {
+    vertical-align: middle;
+  }
+}
+
+.cell a {
+  color: #606266;
+}
+
+/* ======= CARD ======= */
+
