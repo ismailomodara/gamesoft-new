@@ -98,6 +98,30 @@
 .mr-5 {
   margin-right: 3rem !important;
 }
+
+.ml-1 {
+  margin-left: 0.5rem !important;
+}
+
+.ml-2 {
+  margin-left: 1rem !important;
+}
+
+.ml-3 {
+  margin-left: 1.5rem !important;
+}
+
+.ml-4 {
+  margin-left: 2rem !important;
+}
+
+.ml-5 {
+  margin-left: 3rem !important;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
 /* ======= CUSTOM INPUT ============ */
 .gs-form-item--auth {
   position: relative;
@@ -106,9 +130,9 @@
 
   .el-form-item__label {
     position: absolute;
-    top: 50%;
+    top: 56%;
     transform: translateY(-50%);
-    left: 15px;
+    left: 0;
     font-size: 16px;
     padding-bottom: 0;
     transition: all 0.2s ease-out;
@@ -161,6 +185,10 @@
   background-color: transparent !important;
 }
 
+.el-form-item__label {
+  padding-left: 15px !important;
+}
+
 .gs-filters {
   display: flex;
   align-items: center;
@@ -197,26 +225,33 @@
   transition: all 0.2s ease-in;
   font-family: "Quicksand", sans-serif;
   font-weight: 600;
-}
 
-.el-button--primary {
-  border: none !important;
-}
+  &.el-button--primary {
+    border: none !important;
+  }
 
-.el-button:not(.el-button--text):not(.el-button--mini):not(.el-button--small):focus,
-.el-button:not(.el-button--text):not(.el-button--mini):not(.el-button--small):hover {
-  outline: none;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1) !important;
-  transform: translateY(-3px);
-  transition: all 0.2s ease-out;
-}
+  &:not(.el-button--text):not(.el-button--mini):not(.el-button--small):focus,
+  &:not(.el-button--text):not(.el-button--mini):not(.el-button--small):hover {
+    outline: none;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1) !important;
+    transform: translateY(-3px);
+    transition: all 0.2s ease-out;
+  }
 
-.el-button:focus {
-  outline: none !important;
-}
+  &:focus {
+    outline: none !important;
+  }
 
-.el-button--text {
-  padding: 15px 30px;
+  &.el-button--text {
+    padding: 15px 30px;
+  }
+
+  &.is-plain,
+  &.is-plain:hover,
+  &.is-plain:focus {
+    background: #ede6fb !important;
+    color: #4d00d2;
+  }
 }
 
 /* ========== CARD ========== */
@@ -247,6 +282,18 @@
   top: -40px;
 }
 
+/* ====== Dropdown ====== */
+.el-dropdown-menu__item {
+  i {
+    font-size: 0.75rem;
+    margin-right: 10px;
+  }
+}
+
+.el-tabs__item {
+  padding: 0 30px;
+  font-size: 16px;
+}
 
 /* ====== TAB NAV ====== */
 .el-tabs__header {
@@ -287,6 +334,11 @@
   width: 100%;
 }
 
+
+/* ===== TAG ======== */
+.el-tag {
+  font-weight: 600;
+}
 
 /* ===== MESSAGE BOX ===== */
 .el-message-box {
@@ -335,6 +387,13 @@
   th {
     text-transform: uppercase;
     font-size: 12px;
+  }
+}
+
+/* ======== DATEPICKER ======== */
+.el-form-item__content {
+  .el-input--prefix .el-input__icon.el-icon-date {
+    display: none !important;
   }
 }
 

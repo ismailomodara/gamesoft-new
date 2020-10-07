@@ -136,7 +136,7 @@
                 .then((response) => {
                   if (!response.data.error) {
                     this.$message.success(response.data.message)
-                    this.$router.push({ name: 'admin.leaderboard' })
+                    this.$router.push({ name: 'admin.dashboard' })
                   }
                   this.loggingIn = false
                 })

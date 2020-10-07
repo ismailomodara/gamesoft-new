@@ -65,7 +65,6 @@
         <el-row class="mt-4">
           <el-col :span="24">
             <el-card>
-              <recent-transactions />
             </el-card>
           </el-col>
         </el-row>
@@ -76,7 +75,7 @@
 
 <script>
 export default {
-  name: 'AdminUserView',
+  name: 'AdminUser',
   layout: 'admin',
   data() {
     return {

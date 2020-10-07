@@ -32,7 +32,7 @@
         </template>
       </el-table-column>
     </el-table>
-    <div class="is-flex is-justify-end mt-2 mr-2">
+    <div class="is-flex mt-2 ml-3">
       <router-link :to="{ name: 'admin.users'}">
         <el-button type="primary" size="medium" plain>See all</el-button>
       </router-link>

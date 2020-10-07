@@ -2,11 +2,9 @@
   <div>
     <div class="is-flex is-align-center mb-5">
       <div class="gs-layout--heading">
-        <h3 class="mb-0">All {{ allCategoriesFiltered.length }} Categories</h3>
+        <h3 class="mb-0">All {{ data.length }} Categories</h3>
       </div>
-      <router-link :to="{ name: 'admin.categories-add' }">
-        <el-button type="primary" size="small" plain>Add new</el-button>
-      </router-link>
+      <el-button type="primary" size="small" plain @click="showCategoryForm = true">Add new</el-button>
     </div>
     <el-card>
       <el-form class="gs-filters">
@@ -16,112 +14,110 @@
             suffix-icon="gs-icon--search"
             type="text"
             placeholder="Search category"
-            :disabled="!allCategoriesFiltered.length"
-            @input="filterWithQuery"
+            :disabled="!data.length"
           ></el-input>
         </el-form-item>
       </el-form>
-      <el-table v-loading="gettingCategories" :data="allCategoriesFiltered">
+      <el-table :data="data">
         <el-table-column label="" width="30"> </el-table-column>
         <el-table-column prop="name" label="Name">
           <template slot-scope="scope">
             <router-link
               :to="{
-                name: 'admin-categories-category-edit',
-                params: { category: scope.row._id }
+                name: 'admin.categories-category',
+                params: { id: scope.row.id }
               }"
               >{{ scope.row.name }}</router-link
             >
           </template>
         </el-table-column>
-        <el-table-column prop="price" label="Price"> </el-table-column>
-        <el-table-column prop="slug" label="Slug"></el-table-column>
+        <el-table-column prop="slug" label="Slug">
+          <template slot-scope="scope">
+            <p>{{ scope.row.slug }}</p>
+          </template>
+        </el-table-column>
+        <el-table-column prop="stages" label="Stages">
+          <template slot-scope="scope">
+            <p>{{ scope.row.stages }}</p>
+          </template>
+        </el-table-column>
         <el-table-column prop="created" label="Created on">
           <template slot-scope="scope">
-            {{ fullDate(scope.row.createdAt) }}
+            {{ scope.row.created }}
           </template>
         </el-table-column>
         <el-table-column label="Actions">
           <template slot-scope="scope">
-            <router-link
-              :to="{
-                name: 'admin-categories-category-edit',
-                params: { category: scope.row._id }
-              }"
-              ><el-button size="mini">Edit</el-button></router-link
-            >
+            <el-button size="mini" @click="editCategory(scope.row.id)">Edit</el-button>
             <el-button
               size="mini"
               type="danger"
-              @click="deleteCategory(scope.row.name, scope.row._id)"
+              @click="deleteCategory(scope.row.name)"
               >Delete</el-button
             >
           </template>
         </el-table-column>
       </el-table>
     </el-card>
+    <category-form :show.sync="showCategoryForm" action="add" />
   </div>
 </template>
 
 <script>
-import admin from '../../../controllers/admin'
-
+  import CategoryForm from "../../../components/Admin/Categories/CategoryForm";
 export default {
   name: 'AdminCategories',
-  layout: 'admin',
+  components: {
+    CategoryForm
+  },
   data() {
     return {
-      gettingCategories: false,
+      showCategoryForm: false,
       searchQuery: '',
-      allCategories: this.$store.state.admin.categories || []
-    }
-  },
-  computed: {
-    allCategoriesFiltered: {
-      get() {
-        return this.allCategories
-      },
-      set(value) {
-        this.$emit('update:allCategories', value)
-      }
-    }
-  },
-  created() {
-    if (!this.$store.state.admin.categories.length) {
-      this.getAllCategories()
+      data: [
+        {
+          id: 1,
+          name: 'Music',
+          slug: 'music',
+          stages: 3,
+          created: '5th Oct, 2020'
+        },
+        {
+          id: 2,
+          name: 'Music',
+          slug: 'music',
+          stages: 3,
+          created: '5th Oct, 2020'
+        },
+        {
+          id: 3,
+          name: 'Music',
+          slug: 'music',
+          stages: 3,
+          created: '5th Oct, 2020'
+        },
+        {
+          id: 4,
+          name: 'Music',
+          slug: 'music',
+          stages: 3,
+          created: '5th Oct, 2020'
+        },
+        {
+          id: 5,
+          name: 'Music',
+          slug: 'music',
+          stages: 3,
+          created: '5th Oct, 2020'
+        }
+      ]
     }
   },
   methods: {
-    filterWithQuery(query = this.searchQuery) {
-      const categories = this.$store.state.admin.categories
-      if (query !== '') {
-        this.allCategories = categories.filter(
-          (data) =>
-            !query ||
-            data.name.toLowerCase().includes(query.toLowerCase()) ||
-            data.price.toString().includes(query)
-        )
-      } else {
-        this.allCategories = categories
-      }
+    editCategory(id) {
+      this.$router.push({ name: 'admin.categories-edit', params: { id }})
     },
-    filterBy(command) {
-      this.filterWithQuery(command)
-    },
-    getAllCategories() {
-      this.gettingCategories = true
-      this.$store
-        .dispatch('admin/ALL_CATEGORIES')
-        .then(() => {
-          this.gettingCategories = false
-          this.allCategories = this.$store.state.admin.categories
-        })
-        .catch((error) => {
-          this.$message.error(error.response)
-          this.gettingCategories = false
-        })
-    },
-    deleteCategory(name, id) {
+    deleteCategory(name) {
       this.$confirm(
         `Are you sure you want to delete this category, ${name}?`,
         'Warning',
@@ -145,20 +141,7 @@ export default {
             }
           }
         }
-      ).then(() => {
-        admin
-          .deleteCategory(id)
-          .then((response) => {
-            const res = response.data
-            if (!res.error) {
-              this.getAllCategories()
-              this.$message.success(res.message)
-            }
-          })
-          .catch((error) => {
-            this.$message.error(error.response.data.message)
-          })
-      })
+      )
     }
   }
 }

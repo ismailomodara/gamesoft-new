@@ -94,11 +94,11 @@ export default {
           url: 'payments',
           icon: 'credit-card'
         },
-        {
-          label: 'Messages',
-          url: 'messages',
-          icon: 'email'
-        },
+        // {
+        //   label: 'Messages',
+        //   url: 'messages',
+        //   icon: 'mail'
+        // },
         {
           label: 'Admins',
           url: 'admins',
