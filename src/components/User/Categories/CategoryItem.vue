@@ -1,6 +1,6 @@
 <template>
   <div class="gs-category-item">
-    <div class="d-flex justify-content-between">
+    <div class="is-flex is-justify-between">
       <div>
         <h4>{{ category.name }}</h4>
         <span
@@ -74,8 +74,7 @@ export default {
 <style lang="scss" scoped>
 .gs-category-item {
   position: relative;
-  height: 200px;
-  width: 100%;
+  height: 150px;
   background: #ffffff;
   border-radius: 10px;
   padding: 30px 20px;

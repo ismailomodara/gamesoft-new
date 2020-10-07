@@ -33,8 +33,10 @@
         </el-table-column>
         <el-table-column prop="name" label="Name">
           <template slot-scope="scope">
-            <h6>{{ scope.row.name }}</h6>
-            <p>{{ scope.row.email }}</p>
+            <div class="gs-stack">
+              <h6>{{ scope.row.name }}</h6>
+              <p>{{ scope.row.email }}</p>
+            </div>
           </template>
         </el-table-column>
         <el-table-column prop="amount" label="Amount" width="120">
@@ -149,13 +151,14 @@ a {
   font-size: 12px;
 }
 
-.el-table {
+.gs-stack {
   h6 {
     font-size: 16px;
-    margin-bottom: 2px;
+    margin-bottom: 5px;
+    color: #070013;
 
     + p {
-      font-size: 14px;
+      font-size: 13px;
     }
   }
 }

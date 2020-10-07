@@ -12,12 +12,16 @@
               v-model="searchQuery"
               type="text"
               suffix-icon="gs-icon--search"
-              placeholder="Search category"
+              placeholder="Search transaction"
           ></el-input>
         </el-form-item>
       </el-form>
       <el-table :data="tableDataValue" style="width: 100%">
-        <el-table-column label="" width="20"> </el-table-column>
+        <el-table-column label="" width="20">
+          <template slot-scope="scope">
+            <p>{{ scope.$index + 1}}</p>
+          </template>
+        </el-table-column>
         <el-table-column prop="name" label="Name"></el-table-column>
         <el-table-column prop="email" label="Email"></el-table-column>
         <el-table-column prop="amount" label="Amount" width="120">
@@ -26,7 +30,7 @@
         <el-table-column prop="date" label="Date"></el-table-column>
         <el-table-column prop="status" label="Status" width="150">
           <template slot-scope="scope">
-            <el-tag v-if="scope.row.status" type="success">Approved</el-tag>
+            <el-tag v-if="scope.row.status === 'approved'" type="success">Approved</el-tag>
             <el-tag v-else type="danger">Unapproved</el-tag>
           </template>
         </el-table-column>

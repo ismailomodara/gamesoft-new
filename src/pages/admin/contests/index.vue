@@ -51,25 +51,26 @@
           <div class="gs-layout--heading">
             <h3 class="mb-0">Contests</h3>
           </div>
-          <router-link :to="{ name: 'admin.contests-add'}">
-            <el-button type="primary" size="mini" plain>Add new</el-button>
-          </router-link>
+          <el-button type="primary" size="mini" plain @click="showContestForm = true">Add new</el-button>
         </div>
         <el-card>
           <contests />
         </el-card>
       </el-col>
     </el-row>
+    <contest-form :show.sync="showContestForm" />
   </div>
 </template>
 
 <script>
-  import Contests from "../../../components/Admin/Contests"
+  import ContestForm from "../../../components/Admin/Contests/ContestForm";
+  import Contests from "../../../components/Admin/Contests/Contests"
 
   export default {
     name: 'AdminContests',
     components: {
-      Contests
+      Contests,
+      ContestForm
     },
     data() {
       return {
@@ -90,7 +91,8 @@
           end: '6th, Oct, 2020',
           players: '-',
           categories: ['Maths', 'Science']
-        }
+        },
+        showContestForm: false
       }
     }
   }

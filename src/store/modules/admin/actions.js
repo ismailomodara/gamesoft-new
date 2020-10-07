@@ -39,6 +39,7 @@ export default {
 
       store.replaceState(defaultState);
       context.commit(mutations.ADMIN_AUTHENTICATED, false);
+      context.commit(mutations.ADMIN_LOGOUT, defaultState);
     });
   }
 };

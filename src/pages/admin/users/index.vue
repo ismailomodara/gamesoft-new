@@ -1,12 +1,7 @@
 <template>
   <div>
-    <div class="is-flex is-align-center mb-5">
-      <div class="gs-layout--heading">
-        <h3 class="mb-0">All {{ allUsersFiltered.length }} users</h3>
-      </div>
-      <router-link :to="{ name: 'admin.users-add' }">
-        <el-button type="primary" size="small" plain>Add new</el-button>
-      </router-link>
+    <div class="gs-layout--heading">
+      <h3>All {{ allUsersFiltered.length }} users</h3>
     </div>
     <el-card>
       <el-form class="gs-filters">
@@ -32,7 +27,7 @@
         <el-table-column prop="name" label="Name">
           <template slot-scope="scope">
             <router-link
-              :to="{ name: 'admin-users-id', params: { id: scope.row.id } }"
+              :to="{ name: 'admin.users-user', params: { id: scope.row.id } }"
               >{{ scope.row.name }}</router-link
             >
           </template>

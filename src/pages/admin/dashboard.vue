@@ -103,7 +103,7 @@
 
 <script>
 import Leaderboard from '../../components/Admin/Leaderboard'
-import UsersOverview from "../../components/Admin/UsersOverview";
+import UsersOverview from "../../components/Admin/Users/UsersOverview";
 
 export default {
   name: 'AdminDashboard',

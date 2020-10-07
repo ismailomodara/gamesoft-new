@@ -11,20 +11,9 @@
             <p>{{ user.email }}</p>
           </div>
         </div>
-        <el-popover placement="right" width="200" trigger="hover">
-          <div class="gs-announcements">
-            <h6>New Feature!!!</h6>
-            <p>
-              Users get notified about new features on the app, ongoing
-              contests, upcoming contests and the likes.
-            </p>
-          </div>
-          <el-badge slot="reference" is-dot type="success">
-            <div class="gs-notifications">
-              <i class="gs-icon--bell"></i>
-            </div>
-          </el-badge>
-        </el-popover>
+        <div class="gs-logout" @click="logout">
+          <i class="gs-icon--power"></i>
+        </div>
       </div>
       <div class="gs-user-balance">
         <p>Total Winnings</p>
@@ -161,19 +150,19 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.gs-app-layout {
-  display: flex;
-  height: 100vh;
-  width: 100%;
-  overflow-x: hidden;
-  overflow-y: scroll;
+  $--sidenav: 280px;
+
+  .gs-app-layout {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
 
   .gs-app-layout-sidebar {
-    width: 300px;
+    width: $--sidenav;
     height: 100%;
     background: #ffffff;
     padding: 40px 30px;
-    position: fixed;
     z-index: 99;
 
     .gs-user {
@@ -181,6 +170,11 @@ export default {
       justify-content: space-between;
       align-items: center;
       margin-bottom: 30px;
+
+      > div:first-child {
+        display: flex;
+        align-items: center;
+      }
 
       .gs-user-avatar {
         height: 50px;
@@ -200,30 +194,6 @@ export default {
         color: #070013;
         opacity: 0.7;
         margin-bottom: 0;
-      }
-
-      .el-badge:focus {
-        outline: none;
-      }
-
-      .el-badge__content {
-        font-size: 10px;
-      }
-
-      .gs-notifications {
-        color: #070013;
-        opacity: 0.7;
-        cursor: pointer;
-        transition: opacity 0.2s ease-out;
-
-        i {
-          font-size: 20px;
-        }
-
-        &:hover {
-          opacity: 1;
-          transition: opacity 0.2s ease-out;
-        }
       }
     }
 
@@ -343,17 +313,16 @@ export default {
 
   .gs-app-layout-main {
     position: relative;
-    left: 300px;
-    width: calc(100% - 300px);
+    width: calc(100% - 330px);
     height: 100%;
     background: #f3eff9;
     padding-bottom: 80px;
+    overflow-y: scroll;
 
     > div {
-      width: 100%;
       max-width: 1200px;
       margin: auto;
-      padding: 40px 20px;
+      padding: 40px;
     }
   }
 }

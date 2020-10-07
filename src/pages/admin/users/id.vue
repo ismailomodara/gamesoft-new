@@ -65,6 +65,7 @@
         <el-row class="mt-4">
           <el-col :span="24">
             <el-card>
+              <user-transactions />
             </el-card>
           </el-col>
         </el-row>
@@ -74,9 +75,12 @@
 </template>
 
 <script>
+import UserTransactions from "../../../components/Admin/Users/UserTransactions";
 export default {
-  name: 'AdminUser',
-  layout: 'admin',
+  name: 'User',
+  components: {
+    UserTransactions
+  },
   data() {
     return {
       showSendMessage: false,

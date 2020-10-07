@@ -65,7 +65,7 @@
 </template>
 
 <script>
-  import Contest from "../../../components/Admin/Contest";
+  import Contest from "../../../components/Admin/Contests/Contest";
   export default {
     name: 'AdminContest',
     components: {Contest},

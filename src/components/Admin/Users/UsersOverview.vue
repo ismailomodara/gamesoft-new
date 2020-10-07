@@ -3,21 +3,16 @@
     <el-table-column width="70">
       <template slot-scope="scope">
         <el-avatar :size="48" :src="scope.row.avatar">
-          <img class="icon" src="../../assets/img/user.svg" alt="" />
+          <img class="icon" src="../../../assets/img/user.svg" alt="" />
         </el-avatar>
       </template>
     </el-table-column>
-    <el-table-column prop="name" width="250">
+    <el-table-column prop="name" width="200">
       <template slot-scope="scope">
         <router-link :to="{ name: 'admin.users-user', params: { id: scope.row.id }}">
           <p class="gs-user">{{ scope.row.name }}</p>
           <span class="gs-user--email">{{ scope.row.email }}</span>
         </router-link>
-      </template>
-    </el-table-column>
-    <el-table-column prop="winnings" width="100">
-      <template slot-scope="scope">
-        <p>{{ formatPrice(scope.row.winnings) }}</p>
       </template>
     </el-table-column>
     <el-table-column prop="last_seen" align="right">
@@ -40,7 +35,6 @@
             avatar: "",
             name: "Ajanaku Williams",
             email: "ajak@gmail.com",
-            winnings: 2000,
             status: "inactive",
             last_seen: "2 hours ago"
           },
@@ -49,7 +43,6 @@
             avatar: "",
             name: "Rauf Tola",
             email: "rauf@yahoo.com",
-            winnings: 2000,
             status: "active",
             last_seen: "1 day ago"
           },
@@ -58,7 +51,6 @@
             avatar: "",
             name: "Moshood Alaran",
             email: "moshood@gmail.com",
-            winnings: 2000,
             status: "inactive",
             last_seen: "1 week ago"
           },
@@ -67,19 +59,9 @@
             avatar: "",
             name: "Bashir Hamza",
             email: "bashirhamza@gmail.com",
-            winnings: 2000,
             status: "active",
             last_seen: "2 weeks ago"
-          },
-          {
-            id: 5,
-            avatar: "",
-            name: "Rauf Tola",
-            email: "rauf@yahoo.com",
-            winnings: 2000,
-            status: "active",
-            last_seen: "1 day ago"
-          },
+          }
         ]
       }
     },

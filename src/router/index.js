@@ -3,6 +3,9 @@ import VueRouter from "vue-router";
 
 const Home = () => import("../pages/index.vue");
 
+/**
+** Admin Routes
+ **/
 const AdminLogin = () => import("../pages/admin/login");
 const AdminDashboard = () => import("../pages/admin/dashboard");
 
@@ -18,11 +21,16 @@ const AdminContest = () => import("../pages/admin/contests/id");
 
 const Users = () => import("../pages/admin/users/index");
 const UsersBase = () => import("../pages/admin/users/base");
-const AdminUser = () => import("../pages/admin/users/id");
+const User = () => import("../pages/admin/users/id");
+
+const Members = () => import("../pages/admin/members/index")
 
 const AllTransactions = () => import("../pages/admin/transactions/index")
 const AllPayments = () => import("../pages/admin/payments/index")
 
+/**
+** User Routes
+ **/
 const UserLogin = () => import("../pages/user/login");
 const UserDashboard = () => import("../pages/user/dashboard");
 
@@ -136,7 +144,7 @@ const routes = [
       {
         path: "",
         name: "admin.users-user",
-        component: AdminUser,
+        component: User,
         meta: {
           requiresAuth: true,
           layout: 'admin'
@@ -157,6 +165,15 @@ const routes = [
     path: "/admin/payments",
     name: "admin.payments",
     component: AllPayments,
+    meta: {
+      requiresAuth: true,
+      layout: 'admin'
+    }
+  },
+  {
+    path: "/admin/members",
+    name: "admin.members",
+    component: Members,
     meta: {
       requiresAuth: true,
       layout: 'admin'

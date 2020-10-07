@@ -6,7 +6,7 @@
           <img class="gs-auth-logo" :src="logo" alt />
         </router-link>
         <div>
-          <h4 class="gs-auth-heading">Welcome Admin</h4>
+          <h4 class="gs-auth-heading">Welcome User</h4>
           <el-alert
             v-if="loginError"
             class="mb-3"

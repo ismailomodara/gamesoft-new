@@ -1,14 +1,16 @@
 <template>
   <div>
     <el-table :data="data" style="width: 100%">
-      <el-table-column width="60" prop="id" label="Id">
-        <template slot-scope="scope">
-          <p>{{ scope.row.id }}</p>
-        </template>
-      </el-table-column>
       <el-table-column prop="status" label="Status" width="110">
         <template slot-scope="scope">
           <el-tag :type="status(scope.row.status)">{{ scope.row.status }}</el-tag>
+        </template>
+      </el-table-column>
+      <el-table-column prop="name" label="Name" width="120">
+        <template slot-scope="scope">
+          <router-link :to="{ name: 'admin.contests-contest', params: { id: scope.row.id }}">
+            <p>{{ scope.row.name }}</p>
+          </router-link>
         </template>
       </el-table-column>
       <el-table-column prop="duration" label="Duration" width="90">
@@ -22,9 +24,6 @@
             <p>{{ scope.row.start }} - {{ scope.row.end }}</p>
           </div>
         </template>
-      </el-table-column>
-      <el-table-column prop="players" label="Players" width="80">
-        <template slot-scope="scope"><p>{{ scope.row.players }}</p> </template>
       </el-table-column>
       <el-table-column prop="categories" label="Categories" width="160">
         <template slot-scope="scope">
@@ -59,7 +58,7 @@
             duration: '4 days',
             start: "10th Oct, 2020",
             end: "14th, Oct, 2020",
-            players: '-',
+            name: 'Contest A',
             categories: ['Maths', 'Science'],
             payments: null,
             winnings: null
@@ -70,7 +69,7 @@
             duration: '3 days',
             start: "5th Oct, 2020",
             end: "8th, Oct, 2020",
-            players: 18,
+            name: 'Contest B',
             categories: ['Music', 'Sports'],
             payments: 12589,
             winnings: 6500
@@ -81,7 +80,7 @@
             duration: '2 days',
             start: "20th Sep, 2020",
             end: "22nd, Sep, 2020",
-            players: 18,
+            name: 'Contest C',
             categories: ['IQ', 'Sports'],
             payments: 12589,
             winnings: 6500
@@ -92,7 +91,7 @@
             duration: '5 days',
             start: "20th Sep, 2020",
             end: "22nd, Sep, 2020",
-            players: 18,
+            name: 'Contest D',
             categories: ['Music', 'Sports'],
             payments: 3500,
             winnings: 2000
@@ -103,7 +102,7 @@
             duration: '5 days',
             start: "19th Sep, 2020",
             end: "20th, Sep, 2020",
-            players: 12,
+            name: 'Contest E',
             categories: ['Science', 'Sports'],
             payments: 2900,
             winnings: 1200

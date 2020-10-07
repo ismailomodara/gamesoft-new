@@ -55,9 +55,9 @@
 </template>
 
 <script>
-import * as actions from '../store/action-types'
+  import * as actions from '../store/action-types'
 
-export default {
+  export default {
   name: 'AdminLayout',
   data() {
     return {
@@ -100,8 +100,8 @@ export default {
         //   icon: 'mail'
         // },
         {
-          label: 'Admins',
-          url: 'admins',
+          label: 'Members',
+          url: 'members',
           icon: 'user-plus'
         },
       ]
@@ -123,15 +123,13 @@ export default {
   watch: {
     $route(to) {
       if (to.name !== null) {
-        const value = to.name.split('.')
-        this.activeMenu = value[1]
+        this.activeMenu = to.name.split('-')[0].split('.')[1]
       }
     }
   },
   mounted() {
     if (this.$route.name !== null) {
-      const value = this.$route.name.split('.')
-      this.activeMenu = value[1]
+      this.activeMenu = this.$route.name.split('-')[0].split('.')[1]
     }
   },
   beforeRouteEnter(to, from, next) {
@@ -159,11 +157,11 @@ export default {
     },
     logout() {
       this.closeSidenav()
+      this.$router.push({ name: 'admin.login' })
+      this.$message.success('You are logged out!')
       this.$store
         .dispatch(actions.ADMIN_LOGOUT)
         .then(() => {
-          this.$router.push({ name: 'admin-login' })
-          this.$message.success('You are logged out!')
         })
         .catch()
     }
@@ -301,6 +299,21 @@ export default {
 
   .gs-mobile-sidebar--toggle {
     display: none;
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    height: 45px;
+    width: 45px;
+    background: #fff;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+    border-radius: 100px;
+    z-index: 1;
+
+    i {
+      font-size: 1rem;
+    }
   }
 
   .overlay {
