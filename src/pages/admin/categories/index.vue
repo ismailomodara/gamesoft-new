@@ -115,7 +115,7 @@ export default {
   },
   methods: {
     editCategory(id) {
-      this.$router.push({ name: 'admin.categories-edit', params: { id }})
+      this.$router.push({ name: 'admin.categories-category', params: { id }})
     },
     deleteCategory(name) {
       this.$confirm(

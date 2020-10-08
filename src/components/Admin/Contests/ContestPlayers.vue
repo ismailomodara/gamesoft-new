@@ -30,7 +30,7 @@
 
 <script>
   export default {
-    name: 'UsersOverview',
+    name: 'ContestPlayers',
     data() {
       return {
         searchQuery: '',
@@ -61,25 +61,7 @@
             winnings: 2000,
             status: "inactive",
             last_seen: "1 week ago"
-          },
-          {
-            id: 4,
-            avatar: "",
-            name: "Bashir Hamza",
-            email: "bashirhamza@gmail.com",
-            winnings: 2000,
-            status: "active",
-            last_seen: "2 weeks ago"
-          },
-          {
-            id: 5,
-            avatar: "",
-            name: "Rauf Tola",
-            email: "rauf@yahoo.com",
-            winnings: 2000,
-            status: "active",
-            last_seen: "1 day ago"
-          },
+          }
         ]
       }
     },

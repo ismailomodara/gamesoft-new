@@ -25,6 +25,36 @@
           </el-form-item>
         </el-col>
       </el-row>
+      <el-row type="flex" class="flex-wrap" :gutter="30">
+        <el-col :lg="12">
+          <el-form-item
+              v-custom-input="form.duration"
+              class="gs-form-item--auth"
+              label="Duration (mins)"
+              prop="duration"
+          >
+            <el-input
+                v-model="form.duration"
+                v-only-number
+                type="text"
+            ></el-input>
+          </el-form-item>
+        </el-col>
+        <el-col :lg="12">
+          <el-form-item
+              v-custom-input="form.price"
+              class="gs-form-item--auth"
+              label="Price ($)"
+              prop="price"
+          >
+            <el-input
+                v-model="form.price"
+                v-only-number
+                type="text"
+            ></el-input>
+          </el-form-item>
+        </el-col>
+      </el-row>
       <div class="is-flex is-justify-end mt-2">
         <el-button type="primary" @click="closeEvent" plain>Cancel</el-button>
         <el-button v-if="action === 'add'" type="primary" @click="addCategory">Add</el-button>
@@ -54,7 +84,9 @@
     data() {
       return {
         form: {
-          name: ''
+          name: '',
+          duration: '',
+          price: ''
         }
       }
     },

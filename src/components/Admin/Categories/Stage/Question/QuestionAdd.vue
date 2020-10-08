@@ -1,6 +1,6 @@
 <template>
   <el-dialog
-      title="Add New Stage"
+      title="Add New Question"
       :visible.sync="shouldShow"
       width="45%"
       @close="closeEvent"
